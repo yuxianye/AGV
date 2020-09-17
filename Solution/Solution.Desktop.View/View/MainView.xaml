@@ -1,0 +1,133 @@
+﻿<core:UserControlBase x:Class="Solution.Desktop.View.MainView"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:core="clr-namespace:Solution.Desktop.Core;assembly=Solution.Desktop.Core"
+                      mc:Ignorable="d"
+                      MouseDown="UserControlBase_MouseDown"
+                      DataContext="{Binding Source={StaticResource   ResourceKey=Locator},Path=MainViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{DynamicResource ViewButtonAreaHeight}" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <!--顶部Header-->
+        <Grid Grid.Row="0"
+              Background="{DynamicResource HeaderColorBrush}">
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Margin=" 0 0 0 5">
+                <Image Source="pack://application:,,,/Solution.Desktop.Resource;component/Images/logo_white.png"></Image>
+                <TextBlock VerticalAlignment="Top"
+                           Text="{DynamicResource AppName}"
+                           FontSize="32"
+                           x:Name="titleTextBlock"
+                           Margin="10 0 0 0"
+                           FontWeight="Bold">
+
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="{DynamicResource  Gray5}"
+                                          BlurRadius="1"
+                                          ShadowDepth="5"
+                                          Opacity="1" />
+                    </TextBlock.Effect>
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0.5,0"
+                                             EndPoint="0.5,1">
+                            <LinearGradientBrush.GradientStops>
+                                <GradientStop Offset="0.0"
+                                              Color="{DynamicResource WhiteColor}" />
+                                <GradientStop Offset="1.0"
+                                              Color="{DynamicResource WhiteColor}" />
+                                <!--<GradientStop Offset="1"
+                                              Color="#339933" />
+                                <GradientStop Offset="0"
+                                              Color="Orange" />-->
+                                <!--<GradientStop Offset="1"
+                                              Color="#339933" />-->
+
+
+                            </LinearGradientBrush.GradientStops>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+
+            </StackPanel>
+
+
+
+
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Right">
+                <TextBlock Text="{DynamicResource CurrentUser}"
+                           Foreground="{DynamicResource WhiteBrush}"
+                           VerticalAlignment="Center"></TextBlock>
+                <TextBlock Text="{Binding  CurrentLoginUser.UserName}"
+                           Foreground="{DynamicResource WhiteBrush}"
+                           VerticalAlignment="Center"></TextBlock>
+                <Button Style="{DynamicResource CircleButtonStyle}"
+                        Command="{Binding ModifyPasswordCommand}"
+                        ToolTip="{DynamicResource ModifyPassword}">
+                    <iconPacks:PackIconMaterial Width="{DynamicResource CircleButtonIconWidth}"
+                                                Height="{DynamicResource CircleButtonIconHeight}"
+                                                Kind="Lock" />
+                </Button>
+                <Button Style="{DynamicResource CircleButtonStyle}"
+                        Command="{Binding LogoutCommand}"
+                        ToolTip="{DynamicResource Logout}">
+                    <iconPacks:PackIconMaterial Width="{DynamicResource CircleButtonIconWidth}"
+                                                Height="{DynamicResource CircleButtonIconHeight}"
+                                                Kind="ExitToApp" />
+                </Button>
+
+                <Button Style="{DynamicResource CircleButtonStyle}"
+                        Command="{Binding CloseCommand}"
+                        ToolTip="{DynamicResource CloseApp}">
+                    <iconPacks:PackIconMaterial Width="{DynamicResource CircleButtonIconWidth}"
+                                                Height="{DynamicResource CircleButtonIconHeight}"
+                                                Kind="Power" />
+
+                </Button>
+
+                <Button Style="{DynamicResource CircleButtonStyle}"
+                        ToolTip="{DynamicResource Setting}"
+                        Command="{Binding SettingCommand }">
+                    <iconPacks:PackIconMaterial Width="{DynamicResource CircleButtonIconWidth}"
+                                                Height="{DynamicResource CircleButtonIconHeight}"
+                                                Kind="Settings" />
+
+                </Button>
+
+                <Button Style="{DynamicResource CircleButtonStyle}"
+                        ToolTip="{DynamicResource HelpTooltip}"
+                        Command="{Binding HelpCommand }">
+                    <iconPacks:PackIconMaterial Width="{DynamicResource CircleButtonIconWidth}"
+                                                Height="{DynamicResource CircleButtonIconHeight}"
+                                                Kind="Help" />
+
+                </Button>
+            </StackPanel>
+
+
+        </Grid>
+
+        <!--主显示区域，包含左部树形导航和展示区-->
+        <ContentControl Grid.Row="1"
+                        x:Name="mainTabControl"
+                        Content="{Binding MianContentControl}"></ContentControl>
+        <StatusBar Grid.Row="2">
+            <!--<StatusBarItem Content="{DynamicResource  CurrentUser}"></StatusBarItem>
+            <StatusBarItem Content="{Binding  CurrentLoginUser.UserName}"></StatusBarItem>
+            <Separator Style="{DynamicResource MetroStatusBarSeparator}" />-->
+            <!--<StatusBarItem>Selected Tab:</StatusBarItem>
+            <StatusBarItem Content="{Binding MianContentControl, Path=, Mode=OneWay}" />-->
+            <StatusBarItem Content="{DynamicResource UiMessage}"
+                           Foreground="Red" />
+        </StatusBar>
+    </Grid>
+
+</core:UserControlBase>
