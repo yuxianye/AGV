@@ -14,16 +14,16 @@ WPF C#， MVVM方式，车辆自定义控件，命令绑定、数据绑定
 
 ## 界面示例
 
-![image](https://github.com/yuxianye/AGV/blob/master/Images/login.png)
+![image](https://github.com/yuxianye/AGV/blob/master/Images/login.PNG)
 
-![image](https://github.com/yuxianye/AGV/blob/master/Images/车辆管理.png)
+![image](https://github.com/yuxianye/AGV/blob/master/Images/车辆管理.PNG)
 
-![image](https://github.com/yuxianye/AGV/blob/master/Images/地标管理.png)
+![image](https://github.com/yuxianye/AGV/blob/master/Images/地标管理.PNG)
 
-![image](https://github.com/yuxianye/AGV/blob/master/Images/路段管理.png)
+![image](https://github.com/yuxianye/AGV/blob/master/Images/路段管理.PNG)
 
-![image](https://github.com/yuxianye/AGV/blob/master/Images/调度看板.png)
+![image](https://github.com/yuxianye/AGV/blob/master/Images/调度看板.PNG)
 
-![image](https://github.com/yuxianye/AGV/blob/master/Images/路径管理.png)
+![image](https://github.com/yuxianye/AGV/blob/master/Images/路径管理.PNG)
 
 ![image](https://github.com/yuxianye/AGV/blob/master/Images/src.png)
